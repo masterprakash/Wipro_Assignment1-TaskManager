@@ -1,0 +1,29 @@
+﻿@model TaskManager.Models.DTO.TaskDto
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Task Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Task</dt>
+        <dd class="col-sm-10">@Model.TaskDescription</dd>
+
+        <dt class="col-sm-2">Start Date</dt>
+        <dd class="col-sm-10">@Model.StartDate?.ToString("yyyy-MM-dd")</dd>
+
+        <dt class="col-sm-2">Closure Date</dt>
+        <dd class="col-sm-10">@Model.ExpectedClosureDate?.ToString("yyyy-MM-dd")</dd>
+
+        <dt class="col-sm-2">Assigned To</dt>
+        <dd class="col-sm-10">@Model.AssignedTo</dd>
+
+        <dt class="col-sm-2">Status</dt>
+        <dd class="col-sm-10">@Model.CompletionStatus</dd>
+    </dl>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.TaskID" class="btn btn-primary">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

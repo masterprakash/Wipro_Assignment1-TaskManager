@@ -1,0 +1,40 @@
+﻿@model IEnumerable<TaskManager.Models.DTO.TaskDto>
+
+@* <h2>Task List</h2> *@
+@* <h2 class="text-center my-4">Assignment 1</h2> *@
+<h2 class="text-center my-4 fw-bold text-danger" style="text-decoration: underline;">
+    Assignment 1
+</h2>
+
+
+<p><a asp-action="Create">Create New Task</a></p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Task</th>
+            <th>Start Date</th>
+            <th>Expected Closure</th>
+            <th>Assigned To</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.TaskDescription</td>
+                <td>@item.StartDate?.ToShortDateString()</td>
+                <td>@item.ExpectedClosureDate?.ToShortDateString()</td>
+                <td>@item.AssignedTo</td>
+                <td>@item.CompletionStatus</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.TaskID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.TaskID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.TaskID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
