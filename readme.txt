@@ -1,5 +1,5 @@
 ﻿~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-					Assignment 1
+					                       Assignment 1,2,3
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 >>>>
 Project structure:
@@ -62,6 +62,21 @@ BEGIN
     );
 END
 GO
+
+-- Create Log Table
+USE WiproTest;
+GO
+
+IF OBJECT_ID('dbo.Logs', 'U') IS NULL
+BEGIN
+    CREATE TABLE dbo.Logs (
+        LogID INT IDENTITY(1,1) PRIMARY KEY,
+        Description NVARCHAR(1000),
+        LogLevel NVARCHAR(50),
+        LogTime DATETIME DEFAULT GETDATE()
+    );
+END
+
 
 --Adding sample data
 USE WiproTest;

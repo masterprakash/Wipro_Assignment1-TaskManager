@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using TaskManager.Models;
+
 
 namespace TaskManager.DAL;
 
@@ -37,4 +39,6 @@ public partial class TaskDbContext : DbContext
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+    public virtual DbSet<Log> Logs { get; set; }
 }
